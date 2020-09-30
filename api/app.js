@@ -3,10 +3,12 @@ const morgan = require('morgan')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const cors = require('cors')
+const dodenv = require('dotenv')
 const contacts = require('./routes/contact.routes')
 app = express()
 app.use(bodyParser.json())
 app.use(cors())
+dodenv.config()
 mongoose.connect(process.env.MONGODB_URI, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true
